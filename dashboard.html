@@ -15,13 +15,10 @@
 			<div class="card-header py-3 h5">
 				<div class="d-flex bd-highlight p-0">
 					<div class="mr-auto bd-highlight mt-2">
-						<i class="fab fa-instagram"></i>
-						<span class="uidUser">UID</span>
+						<i class="fab fa-instagram"></i> <span class="uidUser">UID</span> | <span class="state_username">State</span>
 						<span class="fb_v2_uid" style="display: none;">V2_UID</span>
 					</div>
 					<div class="bd-highlight">
-						<i class="fas fa-user-check"></i>
-						<span class="state_username">State</span>
 						<button class="btn btn-md metu inbtn">
 							<i class="fas fa-power-off"></i> metu </button>
 					</div>
@@ -71,7 +68,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="d-flex justify-content-between text-uppercase">
+		<div class="d-flex justify-content-between text-uppercase mt-2 mb-2">
 			<div class="me-auto">
 				<ul class="list-group">
 					<li class="list-group-item">
@@ -124,12 +121,12 @@
 				</ul>
 			</div>
 		</div>
-		<div class="card shadow">
+		<div class="card shadow mb-2">
 			<div class="card-header py-3 text-uppercase h5 text-center">
 				<div class="d-flex bd-highlight p-0">
 					<div class="mr-auto bd-highlight">
 						<i class="fas fa-user-cog"></i>
-						<span class="htcxuser">User Tools</span>
+						<span class="htcxuser">User Tools</span> | <button class="btn btn-sm inbtn install_config" title="INSTALL WRANGLER DAN DEEPLINK API"><i class="fa-solid fa-cloud-arrow-down"></i> CONNECT</button>
 					</div>
 					<div class="bd-highlight showSelect">
 						<div class="loadUserChoose">
@@ -187,17 +184,28 @@
 						</div>
 					</div>
 					<div class="col-xl-4 col-lg-5">
-						<div class="input-group mb-1">
-							<span class="input-group-text" id="basic-addon1">
-								<i class="fas fa-external-link-alt mr-1"></i> WEB </span>
-							<input type="text" class="form-control canonical" placeholder="CUSTOM CANONICAL">
+						<div class="config_deeplinking">
+							<select class="custom-select bio_profile_url" style="height:72px; text-align: center;font-weight: 800;font-size: 14px;">
+								<option selected>Short Url</option>
+								<option value="5w">5w.fit</option>
+								<option value="kortlink">kortlink.dk</option>
+								<option value="onl">Onl random</option>
+								<option value="xgd">X.gd</option>
+							</select>
 						</div>
-						<div class="input-group">
-							<input type="text" class="form-control customimage" placeholder="IMAGE URL / UPLOAD">
-							<input type="file" class="form-control base64Branch" hidden>
-							<span class="input-group-text uploadBranch" title="Custom Url Atau Klik Upload">
-								<i class="fa fa-upload"></i>
-							</span>
+						<div class="config_key">
+							<div class="input-group mb-1">
+								<span class="input-group-text" id="basic-addon1">
+									<i class="fas fa-external-link-alt mr-1"></i> WEB </span>
+								<input type="text" class="form-control canonical p-4" placeholder="CUSTOM CANONICAL">
+							</div>
+							<div class="input-group">
+								<input type="text" class="form-control customimage p-4" placeholder="IMAGE URL / UPLOAD">
+								<input type="file" class="form-control base64Branch" hidden>
+								<span class="input-group-text uploadBranch" title="Custom Url Atau Klik Upload">
+									<i class="fa fa-upload"></i>
+								</span>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -205,8 +213,17 @@
 		</div>
 		<div class="card-group pred">
 			<div class="card shadow">
-				<div class="card-header py-3 text-uppercase h5">
-					<i class="fas fa-users"></i> uid
+				<div class="card-header py-3">
+					<div class="d-flex bd-highlight p-1">
+						<div class="mr-auto bd-highlight text-uppercase h5">
+							<i class="fas fa-users"></i> uid
+						</div>
+						<div class="bd-highlight">
+							<button class="btn btn-sm inbtn clear_state" title="RESET STATE CONFIGURATION STORAGE">
+								<i class="fa-solid fa-eraser"></i> RESET
+							</button>
+						</div>
+					</div>
 				</div>
 				<div class="card-body">
 					<div class="input-group mb-1">
@@ -216,17 +233,14 @@
 				</div>
 			</div>
 			<div class="card shadow">
-				<div class="card-header py-3 text-uppercase h5">
-					<div class="d-flex bd-highlight">
-						<div class="mr-auto bd-highlight">
+				<div class="card-header py-3">
+					<div class="d-flex bd-highlight p-1">
+						<div class="mr-auto bd-highlight text-uppercase h5">
 							<i class="fas fa-tools"></i> miscellaneous
 						</div>
 						<div class="bd-highlight">
 							<span class="misc mr-1">0</span>
 							<i class="fas fa-circle mr-1" title=""></i>
-							<button class="btn btn-md inbtn clear_state">
-								<i class="fa-solid fa-eraser"></i>
-							</button>
 						</div>
 					</div>
 				</div>
@@ -287,7 +301,13 @@
 						</div>
 						<div class="input-group mb-1">
 							<div class="input-group-prepend">
-								<span class="input-group-text" id="basic-addon1">Url</span>
+								<select class="custom-select bio_profile_url">
+									<option selected>Short Url</option>
+									<option value="5w">5w.fit</option>
+									<option value="kortlink">kortlink.dk</option>
+									<option value="onl">Onl random</option>
+									<option value="xgd">X.gd</option>
+								</select>
 							</div>
 							<input type="url" class="form-control websiteLink" placeholder="Bio Website">
 							<div class="input-group-prepend shortBranch">
@@ -384,6 +404,15 @@
 							<input type="file" class="form-control-file storyids mb-2">
 							<p class="uploadstorybase64" style="display: none;"></p>
 							<div class="input-group mb-2">
+								<div class="input-group-append">
+									<select class="custom-select bio_profile_url">
+										<option selected>Short Url</option>
+										<option value="5w">5w.fit</option>
+										<option value="kortlink">kortlink.dk</option>
+										<option value="onl">Onl random</option>
+										<option value="xgd">X.gd</option>
+									</select>
+								</div>
 								<input type="text" class="form-control link_story" placeholder="Link url">
 								<div class="input-group-append">
 									<button class="btn btn-md createlinkstory inbtn" type="button">generate</button>
@@ -493,8 +522,7 @@
 			<div class="card-header py-3 h5">
 				<div class="d-flex bd-highlight p-0">
 					<div class="mr-auto bd-highlight mt-2">
-						<i class="fas fa-at"></i>
-						<span class="uid_thread">UID</span>
+						<i class="fas fa-at"></i> <span class="uid_thread">UID</span> | <span class="state_username_threads">State</span>
 					</div>
 					<div class="bd-highlight">
 						<button class="btn btn-md inbtn metuThreads">
@@ -537,7 +565,7 @@
 			</div>
 		</div>
 		<div class="paid_user">
-			<div class="d-flex justify-content-between text-uppercase">
+			<div class="d-flex justify-content-between text-uppercase mt-2 mb-2">
 				<div class="me-auto">
 					<ul class="list-group">
 						<li class="list-group-item">
@@ -569,6 +597,7 @@
 									<option value="uidfollowersThread">Followers</option>
 									<option value="uidfollowingThread">Following</option>
 									<option value="graphqlThread">GraphQL</option>
+									<option value="suggested">suggested uid</option>
 									<option value="usernametouidThread">Username To Uid</option>
 								</select>
 								<button class="btn btn-md inbtn grabberThreads">
@@ -582,12 +611,12 @@
 					</ul>
 				</div>
 			</div>
-			<div class="card shadow">
+			<div class="card shadow mb-2">
 				<div class="card-header py-3 text-uppercase h5 text-center">
 					<div class="d-flex bd-highlight p-0">
 						<div class="mr-auto bd-highlight">
 							<i class="fas fa-user-cog"></i>
-							<span class="htcxuser">User Tools</span>
+							<span class="htcxuser">User Tools</span> | <button class="btn btn-sm inbtn install_config" title="INSTALL WRANGLER DAN DEEPLINK API. SEKALI KLIK WES CUKUP. SAK TAB"><i class="fa-solid fa-cloud-arrow-down"></i> CONNECT</button>
 						</div>
 						<div class="bd-highlight commentThreadsSelect">
 							<div class="loadUserChoose">
@@ -610,6 +639,14 @@
 								<div class="radio radio-inline">
 									<input type="radio" id="followingmassThreads" value="following" name="getmass_uid_threads">
 									<label for="followingmassThreads"> Following</label>
+								</div>
+							</div>
+						</div>
+						<div class="bd-highlight isUserName">
+							<div class="loadUserChoose">
+								<div class="radio radio-info radio-inline">
+									<input type="radio" id="Select_is_Username" value="selected_username" name="pilih_select_username">
+									<label for="Select_is_Username"> Username?</label>
 								</div>
 							</div>
 						</div>
@@ -637,13 +674,22 @@
 							</div>
 						</div>
 						<div class="col-xl-4 col-lg-5">
-							<div class="d-flex flex-column">
-								<div class="felxborder"> FOLLOWING : <span class="followingthreads">0</span>
+							<div class="felxborder">
+								<div class="row no-gutters">
+									<div class="col">
+										FOLLOWING : <span class="followingthreads">0</span>
+									</div>
+									<div class="col">
+										<div class="radio radio-inline">
+											<input type="radio" id="swicth_auto_post" value="auto_post" name="set_auto_post" data-toggle="modal" data-target="#shorturl">
+											<label for="swicth_auto_post"> AUTO POST</label>
+										</div>
+									</div>
 								</div>
 							</div>
-							<div class="input-group">
+							<div class="input-group mt-1">
 								<div class="input-group-prepend">
-									<span class="input-group-text" id="basic-addon1">STATUS COUNT</span>
+									<span class="input-group-text" id="basic-addon1">STATUS</span>
 								</div>
 								<input type="text" class="form-control postthreads text-center" placeholder="Postingan Threads" readonly>
 								<button class="btn btn-md inbtn deletepostingan">DELETE</button>
@@ -654,8 +700,17 @@
 			</div>
 			<div class="card-group predThreads">
 				<div class="card shadow">
-					<div class="card-header py-3 text-uppercase h5">
-						<i class="fas fa-users"></i> uid
+					<div class="card-header py-3">
+						<div class="d-flex bd-highlight p-1">
+							<div class="mr-auto bd-highlight text-uppercase h5">
+								<i class="fas fa-users"></i> uid
+							</div>
+							<div class="bd-highlight">
+								<button class="btn btn-sm inbtn clear_state" title="RESET STATE CONFIGURATION STORAGE">
+									<i class="fa-solid fa-eraser"></i> RESET
+								</button>
+							</div>
+						</div>
 					</div>
 					<div class="card-body">
 						<div class="input-group mb-1">
@@ -665,17 +720,14 @@
 					</div>
 				</div>
 				<div class="card shadow">
-					<div class="card-header py-3 text-uppercase h5">
-						<div class="d-flex bd-highlight">
-							<div class="mr-auto bd-highlight">
+					<div class="card-header py-3">
+						<div class="d-flex bd-highlight p-1">
+							<div class="mr-auto bd-highlight text-uppercase h5">
 								<i class="fas fa-tools"></i> miscellaneous
 							</div>
 							<div class="bd-highlight">
 								<span class="misc mr-1">0</span>
 								<i class="fas fa-circle" title=""></i>
-								<button class="btn btn-md inbtn clear_state">
-									<i class="fa-solid fa-eraser"></i>
-								</button>
 							</div>
 						</div>
 					</div>
@@ -763,7 +815,13 @@
 							</div>
 							<div class="input-group mb-2">
 								<div class="input-group-prepend">
-									<span class="input-group-text" id="basic-addon1">Url</span>
+									<select class="custom-select bio_profile_url">
+										<option selected>Short Url</option>
+										<option value="5w">5w.fit</option>
+										<option value="kortlink">kortlink.dk</option>
+										<option value="onl">Onl random</option>
+										<option value="xgd">X.gd</option>
+									</select>
 								</div>
 								<input type="url" class="form-control websiteLinkthreads" placeholder="Bio Website" readonly>
 								<div class="input-group-prepend">
@@ -902,6 +960,44 @@
 				</div>
 			</div>
 			<!--Modal Ganti Poto-->
+			<!--Modal Short Url Config-->
+			<div class="modal fade" id="shorturl" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">
+								<i class="fa-solid fa-scissors mr-1"></i> Pilih Short Url
+							</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="alert alert-primary" role="alert">
+								Short Url Syncronize Dengan <strong>Wrangler</strong>. Jadi pastikan <strong>Primer</strong> sudah submit <strong>Wrangler Config.</strong><br />
+								<strong>Select Short Url & Click Set Config Untuk Mulai AUTO POST</strong><br />
+								misal ono postingan siji. iki wes gak mlaku. kecuali delete postingan.
+							</div>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+								  <label class="input-group-text"><i class="fa-solid fa-scissors mr-1"></i></label>
+								</div>
+								<select class="custom-select short_uri">
+									<option selected>Pilih Short Url</option>
+									<option value="5w">5w.fit</option>
+									<option value="kortlink">kortlink.dk</option>
+									<option value="onl">Onl random</option>
+									<option value="xgd">X.gd</option>
+								</select>
+							</div>
+							<button type="button" class="btn btn-md btn-block inbtn set_configuration_short">
+								<i class="fa-solid fa-scissors mr-1"></i> Set Config
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--Modal Short Url Config-->
 		</div>
 		<div class="border">
 			<i class="fas fa-bug"></i>

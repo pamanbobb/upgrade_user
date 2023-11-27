@@ -41,7 +41,7 @@
 						<div class="profile-stats">
 							<ul>
 								<li>
-									<span class="profile-stat-count posting">0</span> posts
+									<span class="profile-stat-count posting">0</span> posts <span class="small showdeletepost"> | <button type="button" class="btn btn-sm deleteallpost">delete</button></span>
 								</li>
 								<li>
 									<span class="profile-stat-count followers">0</span> followers
@@ -187,10 +187,7 @@
 						<div class="config_deeplinking">
 							<select class="custom-select bio_profile_url" style="height:72px; text-align: center;font-weight: 800;font-size: 14px;">
 								<option selected>Short Url</option>
-								<option value="5w">5w.fit</option>
-								<option value="kortlink">kortlink.dk</option>
-								<option value="onl">Onl random</option>
-								<option value="xgd">X.gd</option>
+								<option value="brunch">Brunch</option>
 							</select>
 						</div>
 						<div class="config_key">
@@ -264,6 +261,7 @@
 		</div>
 		<span class="img_url" style="display:none;"></span>
 		<button class="sandianyar" data-toggle="modal" data-target="#editSandi" style="display:none;"></button>
+		<button class="phonenumber" data-toggle="modal" data-target="#phonenumber" style="display:none;"></button>
 		<button class="codemail" data-toggle="modal" data-target="#codeemail" style="display:none;"></button>
 		<!--Modal-->
 		<div class="modal fade" id="editprofile" tabindex="-1" role="dialog" aria-hidden="true">
@@ -303,10 +301,7 @@
 							<div class="input-group-prepend">
 								<select class="custom-select bio_profile_url">
 									<option selected>Short Url</option>
-									<option value="5w">5w.fit</option>
-									<option value="kortlink">kortlink.dk</option>
-									<option value="onl">Onl random</option>
-									<option value="xgd">X.gd</option>
+									<option value="brunch">Brunch</option>
 								</select>
 							</div>
 							<input type="url" class="form-control websiteLink" placeholder="Bio Website">
@@ -407,10 +402,7 @@
 								<div class="input-group-append">
 									<select class="custom-select bio_profile_url">
 										<option selected>Short Url</option>
-										<option value="5w">5w.fit</option>
-										<option value="kortlink">kortlink.dk</option>
-										<option value="onl">Onl random</option>
-										<option value="xgd">X.gd</option>
+										<option value="brunch">Brunch</option>
 									</select>
 								</div>
 								<input type="text" class="form-control link_story" placeholder="Link url">
@@ -434,56 +426,6 @@
 			</div>
 		</div>
 		<!--Modal upload story-->
-		<!--Modal code-->
-		<div class="modal fade" id="codeemail" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">
-							<i class="fas fa-lock"></i> Submit Code
-						</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="input-group mb-3 four">
-							<span class="input-group-text" id="as">
-								<i class="fas fa-lock"></i>
-							</span>
-							<input type="text" class="form-control code_email" placeholder="Dele kene Code Mu" aria-describedby="as">
-							<button type="button" class="btn inbtn mx-auto submitcode">Submit Code</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--Modal code-->
-		<!--Modal sandi-->
-		<div class="modal fade" id="editSandi" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">
-							<i class="fas fa-lock"></i> Ganti Sandi
-						</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="input-group mb-3 four">
-							<span class="input-group-text" id="as">
-								<i class="fas fa-lock"></i>
-							</span>
-							<input type="text" class="form-control sandiBaru" placeholder="Dele kene Sandi Mu" aria-describedby="as">
-							<button type="button" class="btn inbtn mx-auto sandiganti">Ganti Sandi</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--Modal sandi-->
 		<!--Setting-->
 		<div class="modal fade" id="setting_accounts" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
@@ -817,10 +759,7 @@
 								<div class="input-group-prepend">
 									<select class="custom-select bio_profile_url">
 										<option selected>Short Url</option>
-										<option value="5w">5w.fit</option>
-										<option value="kortlink">kortlink.dk</option>
-										<option value="onl">Onl random</option>
-										<option value="xgd">X.gd</option>
+										<option value="brunch">Brunch</option>
 									</select>
 								</div>
 								<input type="url" class="form-control websiteLinkthreads" placeholder="Bio Website" readonly>
@@ -984,10 +923,7 @@
 								</div>
 								<select class="custom-select short_uri">
 									<option selected>Pilih Short Url</option>
-									<option value="5w">5w.fit</option>
-									<option value="kortlink">kortlink.dk</option>
-									<option value="onl">Onl random</option>
-									<option value="xgd">X.gd</option>
+									<option value="brunch">Brunch</option>
 								</select>
 							</div>
 							<button type="button" class="btn btn-md btn-block inbtn set_configuration_short">
@@ -1005,4 +941,87 @@
 			<i class="fas fa-bug"></i>
 		</div>
 	</div>
+
+	<!--Modal code-->
+	<div class="modal fade" id="codeemail" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<i class="fas fa-lock"></i> Submit Code
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="input-group mb-3 four">
+						<span class="input-group-text" id="as">
+							<i class="fas fa-lock"></i>
+						</span>
+						<input type="text" class="form-control code_email" placeholder="Dele kene Code Mu" aria-describedby="as">
+						<button type="button" class="btn inbtn mx-auto submitcode">Submit Code</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Modal code-->
+	<!--Modal sandi-->
+	<div class="modal fade" id="editSandi" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<i class="fas fa-lock"></i> Ganti Sandi Web
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="input-group mb-3 four">
+						<span class="input-group-text" id="as">
+							<i class="fas fa-lock"></i>
+						</span>
+						<input type="text" class="form-control sandi_lama p-3" placeholder="Password LAWAS">
+						
+					</div>
+					<div class="input-group mb-3 four">
+						<span class="input-group-text" id="as">
+							<i class="fas fa-lock"></i>
+						</span>
+						<input type="text" class="form-control sandi_baru p-3" placeholder="Password ANYAR">
+					</div>
+					<button type="button" class="btn btn-block btn-lg inbtn mx-auto sandiganti">Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Modal sandi-->
+	<!--Modal phone number-->
+	<div class="modal fade" id="phonenumber" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<i class="fas fa-lock"></i> Submit phone number
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="input-group mb-3 four">
+						<span class="input-group-text" id="as">
+							<i class="fas fa-lock"></i>
+						</span>
+						<input type="text" class="form-control phone_number" placeholder="Isi nomer indonesia" aria-describedby="as">
+						<button type="button" class="btn inbtn mx-auto phone_number_btn">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Modal phone number-->
 </div>

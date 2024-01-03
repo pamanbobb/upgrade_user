@@ -15,12 +15,12 @@
 			<div class="card-header py-3 h5">
 				<div class="d-flex bd-highlight p-0">
 					<div class="mr-auto bd-highlight mt-2">
-						<i class="fab fa-instagram"></i> <span class="uidUser">UID</span> | <span class="state_username">State</span>
+						<i class="fab fa-instagram"></i> <span class="uidUser">UID</span> | <button type="button" class="btn inbtn copystate_username" title="Copy Username"><i class="far fa-copy"></i></button> <span class="state_username">State</span>
 						<span class="fb_v2_uid" style="display: none;">V2_UID</span>
 					</div>
 					<div class="bd-highlight">
-						<button class="btn btn-md metu inbtn">
-							<i class="fas fa-power-off"></i> metu </button>
+						<button class="btn btn-md metu inbtn"><i class="fas fa-power-off"></i> metu </button>
+						<button class="btn btn-md inbtn add_new_account" data-toggle="modal" data-target="#addaccountlogin"><i class="fas fa-users"></i> add account </button>
 					</div>
 				</div>
 			</div>
@@ -107,7 +107,7 @@
 								<option value="uidlike">Liker Post</option>
 								<option value="graphql">GraphQL</option>
 								<option value="threadid">Thread Id</option>
-								<option value="usernametouid">Username To Uid</option>
+								<option value="usernametouid">Convert To</option>
 								<option value="check">Filter Akun</option>
 							</select>
 							<button class="btn btn-md inbtn grabber">
@@ -226,6 +226,11 @@
 					<div class="input-group mb-1">
 						<span class="input-group-text stoped"> STOP </span>
 						<textarea class="form-control uid" cols="10" rows="10" placeholder="UID | THREAD ID | USER GET MEDIA ID | ACTIVE"></textarea>
+						<div class="input-group-prepend">
+							<button class="btn btn-outline-dark copy_uid" type="button" title="copy">
+								<i class="far fa-copy"></i>
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -242,7 +247,14 @@
 					</div>
 				</div>
 				<div class="card-body">
-					<textarea class="form-control commit" cols="10" rows="10" placeholder="KEY_LIVE | COMMENT | TEXT DM | USERNAME CLONE | USERNAME GRAB UID | MEDIA ID | CHECK AKUN | MASS UID TO UID"></textarea>
+					<div class="input-group mb-1">
+						<textarea class="form-control commit" cols="10" rows="10" placeholder="KEY_LIVE | COMMENT | TEXT DM | USERNAME CLONE | USERNAME GRAB UID | MEDIA ID | CHECK AKUN | MASS UID TO UID"></textarea>
+						<div class="input-group-prepend">
+							<button class="btn btn-outline-dark copy_misc" type="button" title="copy">
+								<i class="far fa-copy"></i>
+							</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -325,6 +337,30 @@
 			</div>
 		</div>
 		<!--Modal-->
+		<!--Modal add account-->
+		<div class="modal fade" id="addaccountlogin" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title text-uppercase">
+							<i class="fas fa-users"></i> Add New Pointed Account
+						</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<p class="text-uppercase text-center"><span class="countconsole"></span></p>
+							<input class="form-control text-center email_add p-4 mb-3" placeholder="Masukkan Email Baru"></textarea>
+							<p class="text-uppercase text-center mb-3">Akun auto disimpan di local directory /account/library/create.xlsx</p>
+							<button type="button" class="btn btn-md btn-block inbtn simulate_create"><i class="fas fa-users"></i> Start Simulate </button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Modal add account-->
 		<!--Modal Poto-->
 		<div class="modal fade" id="editphoto" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
@@ -341,7 +377,7 @@
 						<div class="form-group">
 							<input type="file" class="form-control-file changepict mb-2">
 							<p class="base64" style="display: none;"></p>
-							<img src="asset/blank.jpg" width="500" height="450" class="img_preview img-thumbnail mb-2">
+							<img src="asset/blank.jpg" class="img_preview img-thumbnail mx-auto">
 							<button type="button" class="btn btn-md btn-block inbtn uploadimage">
 								<i class="fa fa-upload"></i> Upload </button>
 						</div>
@@ -430,14 +466,19 @@
 		<div class="modal fade" id="setting_accounts" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
-					<div class="modal-header modal-title nav nav-tabs" id="nav-tab" role="tablist">
-						<button class="nav-link active" id="email-tab" data-toggle="tab" data-target="#email" type="button" role="tab" aria-controls="nav-email" aria-selected="true">
-							<i class="fas fa-at"></i>Email </button>
+					<div class="modal-header">
+						<h5 class="modal-title">
+							<i class="fas fa-cog"></i> Configuration
+						</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
 					<div class="modal-body">
+						<div class="nav nav-tabs" id="nav-tab" role="tablist">
+							<button class="nav-link active" id="email-tab" data-toggle="tab" data-target="#email" type="button" role="tab" aria-controls="nav-email" aria-selected="true">Email</button>
+							<button class="nav-link" id="password-tab" data-toggle="tab" data-target="#password" type="button" role="tab" aria-controls="nav-password" aria-selected="true">Password</button>
+						</div>
 						<div class="tab-content" id="nav-tabContent">
 							<div class="tab-pane fade show active" id="email" role="tabpanel" aria-labelledby="email-tab">
 								<div class="input-group mb-2">
@@ -450,6 +491,24 @@
 								</div>
 								<button type="button" class="btn btn-md btn-block inbtn changeemail">
 									<i class="fas fa-cog"></i> Simpan </button>
+							</div>
+
+							<div class="tab-pane fade show" id="password" role="tabpanel" aria-labelledby="password-tab">
+								<div class="input-group mb-2">
+									<div class="input-group-prepend">
+										<span class="input-group-text">
+											<i class="fas fa-lock"></i>
+										</span>
+									</div>
+									<input type="text" class="form-control current_password" placeholder="Current Password">
+									<div class="input-group-prepend">
+										<span class="input-group-text">
+											<i class="fas fa-lock"></i>
+										</span>
+									</div>
+									<input type="text" class="form-control new_password" placeholder="New Password">
+								</div>
+								<button type="button" class="btn btn-md btn-block inbtn gantipassword"><i class="fas fa-cog"></i> Simpan </button>
 							</div>
 						</div>
 					</div>
@@ -464,7 +523,7 @@
 			<div class="card-header py-3 h5">
 				<div class="d-flex bd-highlight p-0">
 					<div class="mr-auto bd-highlight mt-2">
-						<i class="fas fa-at"></i> <span class="uid_thread">UID</span> | <span class="state_username_threads">State</span>
+						<i class="fas fa-at"></i> <span class="uid_thread">UID</span> | <button type="button" class="btn inbtn copystate_usernamethreads" title="Copy Username"><i class="far fa-copy"></i></button> <span class="state_username_threads">State</span>
 					</div>
 					<div class="bd-highlight">
 						<button class="btn btn-md inbtn metuThreads">
@@ -658,6 +717,9 @@
 						<div class="input-group mb-1">
 							<span class="input-group-text stopedThreads"> STOP </span>
 							<textarea class="form-control uidthreadsids" cols="10" rows="10" placeholder="UID"></textarea>
+							<button class="btn btn-outline-dark copy_uid_threads" type="button" title="copy">
+								<i class="far fa-copy"></i>
+							</button>
 						</div>
 					</div>
 				</div>
@@ -674,7 +736,14 @@
 						</div>
 					</div>
 					<div class="card-body">
-						<textarea class="form-control commitThreads" cols="10" rows="10" placeholder="SHORTCODE | USERNAME GRAB UID | MASS UID TO UID | CONVERT"></textarea>
+						<div class="input-group mb-1 blink">
+							<textarea class="form-control commitThreads" cols="10" rows="10" placeholder="SHORTCODE | USERNAME GRAB UID | MASS UID TO UID | CONVERT"></textarea>
+							<div class="input-group-prepend">
+								<button class="btn btn-outline-dark copy_misc_threads" type="button" title="copy">
+									<i class="far fa-copy"></i>
+								</button>
+							</div>
+						</div>
 						<div class="row commentchoosetools">
 							<div class="col-sm mb-2">
 								<div class="input-group">
@@ -890,7 +959,7 @@
 							<div class="form-group">
 								<input type="file" class="form-control-file gantiprofileThreadss mb-2">
 								<p class="base64profileimage" style="display: none;"></p>
-								<img src="asset/blank.jpg" width="500" height="450" class="gambarmetu img-thumbnail mb-2">
+								<img src="asset/blank.jpg" class="gambarmetu img-thumbnail mx-auto">
 								<button type="button" class="btn btn-md btn-block inbtn uploadimageProfileThreads">
 									<i class="fa fa-upload"></i> Upload </button>
 							</div>
@@ -985,7 +1054,6 @@
 							<i class="fas fa-lock"></i>
 						</span>
 						<input type="text" class="form-control sandi_lama p-3" placeholder="Password LAWAS">
-						
 					</div>
 					<div class="input-group mb-3 four">
 						<span class="input-group-text" id="as">

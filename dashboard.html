@@ -91,6 +91,7 @@
 								<option value="likeuid">Like</option>
 								<option value="commentuid">Comment</option>
 								<option value="dmpeople">DM People</option>
+								<option value="dm_story">DM Story</option>
 								<option value="dmgroup">DM Group</option>
 								<option value="send_dm">Send Dm</option>
 								<option value="approve">Approve Dm</option>
@@ -104,8 +105,8 @@
 								<option value="uidfollowers">Followers</option>
 								<option value="uidfollowing">Following</option>
 								<option value="userpost">Media ID</option>
-								<option value="uidlike">Liker Post</option>
-								<option value="graphql">GraphQL</option>
+								<option value="uidlike">Liker</option>
+								<!--<option value="graphql">GraphQL</option>-->
 								<option value="threadid">Thread Id</option>
 								<option value="usernametouid">Convert To</option>
 								<option value="check">Filter Akun</option>
@@ -275,6 +276,8 @@
 		<button class="sandianyar" data-toggle="modal" data-target="#editSandi" style="display:none;"></button>
 		<button class="phonenumber" data-toggle="modal" data-target="#phonenumber" style="display:none;"></button>
 		<button class="codemail" data-toggle="modal" data-target="#codeemail" style="display:none;"></button>
+		<button class="challange_ufac" data-toggle="modal" data-target="#ufac_dialog" style="display:none;"></button>
+		<button class="challange_ufac_manually" data-toggle="modal" data-target="#ufac_dialog_manual" style="display:none;"></button>
 		<!--Modal-->
 		<div class="modal fade" id="editprofile" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
@@ -322,11 +325,17 @@
 								<button type="button" class="btn btn-md inbtn deletedlink">Delete</button>
 							</div>
 						</div>
-						<div class="input-group mb-2">
+						<div class="input-group mb-1">
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1">Email</span>
 							</div>
 							<input type="text" class="form-control ikiemail" placeholder="Email" readonly>
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon1">Phone</span>
+							</div>
+							<input type="text" class="form-control phone_number_profile" placeholder="phone number" readonly>
 						</div>
 						<div class="col-12 text-center">
 							<button type="button" class="btn inbtn editaccount">
@@ -352,7 +361,12 @@
 					<div class="modal-body">
 						<div class="form-group">
 							<p class="text-uppercase text-center"><span class="countconsole"></span></p>
-							<input class="form-control text-center email_add p-4 mb-3" placeholder="Masukkan Email Baru"></textarea>
+							<div class="input-group mt-3 mb-2">
+								<input class="form-control text-center email_add p-4" placeholder="Masukkan Email Baru"></textarea>
+								<div class="input-group-prepend">
+									<button type="button" class="btn btn-sm inbtn checkuid"><i class="fas fa-at"></i> private</button>
+								</div>
+							</div>
 							<p class="text-uppercase text-center mb-3">Akun auto disimpan di local directory /account/library/create.xlsx</p>
 							<button type="button" class="btn btn-md btn-block inbtn simulate_create"><i class="fas fa-users"></i> Start Simulate </button>
 						</div>
@@ -477,38 +491,56 @@
 					<div class="modal-body">
 						<div class="nav nav-tabs" id="nav-tab" role="tablist">
 							<button class="nav-link active" id="email-tab" data-toggle="tab" data-target="#email" type="button" role="tab" aria-controls="nav-email" aria-selected="true">Email</button>
+							<button class="nav-link" id="phone-number-tab" data-toggle="tab" data-target="#phonenumber_ig" type="button" role="tab" aria-controls="nav-phone" aria-selected="true">Phone</button>
 							<button class="nav-link" id="password-tab" data-toggle="tab" data-target="#password" type="button" role="tab" aria-controls="nav-password" aria-selected="true">Password</button>
 						</div>
 						<div class="tab-content" id="nav-tabContent">
 							<div class="tab-pane fade show active" id="email" role="tabpanel" aria-labelledby="email-tab">
-								<div class="input-group mb-2">
+								<div class="input-group mt-3 mb-2">
 									<div class="input-group-prepend">
 										<span class="input-group-text">
 											<i class="fas fa-at"></i>
 										</span>
 									</div>
-									<input type="text" class="form-control newmail" placeholder="New Email">
+									<input type="text" class="form-control newmail p-4" placeholder="New Email">
+									<div class="input-group-prepend">
+										<button type="button" class="btn btn-md btn-block inbtn checkuid"><i class="fas fa-at"></i> private</button>
+									</div>
 								</div>
-								<button type="button" class="btn btn-md btn-block inbtn changeemail">
+								<button type="button" class="btn btn-lg btn-block inbtn changeemail">
 									<i class="fas fa-cog"></i> Simpan </button>
 							</div>
-
-							<div class="tab-pane fade show" id="password" role="tabpanel" aria-labelledby="password-tab">
-								<div class="input-group mb-2">
+							<div class="tab-pane fade show" id="phonenumber_ig" role="tabpanel" aria-labelledby="phone-number-tab">
+								<div class="input-group mt-3 mb-2">
 									<div class="input-group-prepend">
 										<span class="input-group-text">
-											<i class="fas fa-lock"></i>
+											123
 										</span>
 									</div>
-									<input type="text" class="form-control current_password" placeholder="Current Password">
+									<input type="text" class="form-control newphonenumber p-4" placeholder="Masukkan Nomer Atau Generate Otp">
 									<div class="input-group-prepend">
-										<span class="input-group-text">
-											<i class="fas fa-lock"></i>
-										</span>
+										<button type="button" class="btn btn-md btn-block inbtn get_otp">OTP</button>
 									</div>
-									<input type="text" class="form-control new_password" placeholder="New Password">
 								</div>
-								<button type="button" class="btn btn-md btn-block inbtn gantipassword"><i class="fas fa-cog"></i> Simpan </button>
+								<button type="button" class="btn btn-lg btn-block inbtn submit_phone_number">
+									<i class="fas fa-cog"></i> Simpan </button>
+							</div>
+							<div class="tab-pane fade show" id="password" role="tabpanel" aria-labelledby="password-tab">
+								<div class="input-group mt-3 mb-2">
+									<div class="input-group-prepend">
+										<span class="input-group-text">
+											<i class="fas fa-lock"></i>
+										</span>
+									</div>
+									<input type="text" class="form-control current_password p-4" placeholder="Current Password">
+									<div class="input-group-prepend">
+										<span class="input-group-text">
+											<i class="fas fa-lock"></i>
+										</span>
+									</div>
+									<input type="text" class="form-control new_password p-4" placeholder="New Password">
+								</div>
+								<button type="button" class="btn btn-lg btn-block inbtn gantipassword"><i class="fas fa-cog"></i> Simpan </button>
 							</div>
 						</div>
 					</div>
@@ -516,6 +548,53 @@
 			</div>
 		</div>
 		<!--Setting-->
+		<!--UFAC-->
+		<div class="modal fade" id="ufac_dialog" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">
+							<i class="fas fa-cog"></i> Pilih Metode Challenge Ufac
+						</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="btn-group mb-3 mt-3 mx-auto" role="group">
+							<button type="button" class="btn btn-lg inbtn manual_challange_ufac"><i class="fas fa-cog"></i> MANUAL </button>
+							<button type="button" class="btn btn-lg inbtn auto_challange_ufac"><i class="fas fa-cog"></i> AUTO </button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--UFAC-->
+
+		<!--UFAC MANUAL-->
+		<div class="modal fade" id="ufac_dialog_manual" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">
+							<i class="fas fa-cog"></i> CAPTCHA UFAC TFB BINARY
+						</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<img src="" title="type_captcha" class="cpth mx-auto" alt="Captha UFAC TFB">
+						<div class="input-group mb-2">
+							<input type="text" class="form-control ufac_words_captcha p-4" placeholder="Masukkan Captcha | Perhatikan Huruf Besar Kecil Nomer">
+						</div>
+						<button type="button" class="btn btn-lg btn-block inbtn send_ufac_captcha"><i class="fas fa-cog"></i> Send </button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--UFAC MANUAL-->
+
 	</div>
 	<!--THREAD HTML-->
 	<div class="tab-pane fade" id="threads" role="tabpanel" aria-labelledby="nav-threads-tab">
@@ -597,7 +676,7 @@
 									<option value="massuidThread">Mass Uid Grab</option>
 									<option value="uidfollowersThread">Followers</option>
 									<option value="uidfollowingThread">Following</option>
-									<option value="graphqlThread">GraphQL</option>
+									<!--<option value="graphqlThread">GraphQL</option>-->
 									<option value="suggested">suggested uid</option>
 									<option value="usernametouidThread">Username To Uid</option>
 								</select>
